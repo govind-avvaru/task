@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/** Grid di xml
+ * @category  I95dev
+ * @package   I95dev_Grid
+ * @author    I95dev
+ * @copyright Copyright (c) 2010-2017 I95dev Software Private Limited (https://I95dev.com)
+ * @license   https://store.I95dev.com/license.html
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="I95dev\Grid\Api\Data\GridInterface" type="I95dev\Grid\Model\Grid" />
+
+    <virtualType name="I95dev\Grid\Model\ResourceModel\Grid\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">wk_grid_records</argument>
+            <argument name="resourceModel" xsi:type="string">I95dev\Grid\Model\ResourceModel\Grid</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="grid_record_grid_list_data_source" xsi:type="string">I95dev\Grid\Model\ResourceModel\Grid\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

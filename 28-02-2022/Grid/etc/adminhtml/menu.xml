@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * I95dev_Grid Menu
+ *
+ * @category    I95dev
+ * @package     I95dev_Grid
+ * @author      I95dev Software Private Limited
+ *
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="I95dev_Grid::manager" title="Grid Manager" module="I95dev_Grid" sortOrder="10" resource="I95dev_Grid::manager"/>
+        <add id="I95dev_Grid::add_row" title="Grid Manager" module="I95dev_Grid" sortOrder="20" parent="I95dev_Grid::manager" action="grid/grid" resource="I95dev_Grid::add_row"/>
+    </menu>
+</config>
