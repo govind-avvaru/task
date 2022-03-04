@@ -1,6 +1,6 @@
 <?php
 
-namespace Mageplaza\Simpleshipping\Model\Carrier;
+namespace I95dev\Simpleshipping\Model\Carrier;
 
 use Magento\Quote\Model\Quote\Address\RateRequest;
 use Magento\Shipping\Model\Rate\Result;
