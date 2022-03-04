@@ -1,6 +1,6 @@
 <?php
 
-namespace CCBill\CustomPaymentOption\Model;
+namespace I95dev\CustomPaymentOption\Model;
 class CustomPaymentOption extends \Magento\Payment\Model\Method\Cc
 {
     const METHOD_CODE = 'ccbill_custompaymentoption';
