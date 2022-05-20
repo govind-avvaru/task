@@ -1,0 +1,18 @@
+type Query {
+    formdetails(
+        id: int! @doc(description: "enter id?")
+    ): formdetails
+    @resolver(class: "I95dev\\employeeform\\GraphQl\\Resolver\\formdetails")
+    @doc(description: "Simple formdetails")
+}
+
+type formdetails @doc(description: "formdetails inputs") {
+    id: int @doc(description: "id")
+    Date_Of_Birth: Date @doc(description: " Date_Of_Birth")
+    Full_Name: String @doc(description: "Full_Name")
+    MobileNo: String @doc(description: "MobileNo")
+    Email: String @doc(description: " Email")
+    Area: String @doc(description: " Area")
+    Team_Name: String @doc(description: "Team_Name")
+    Team_Captain_Name: String @doc(description: "Team_Captain_Name")
+}
