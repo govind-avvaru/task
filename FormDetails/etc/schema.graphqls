@@ -1,0 +1,62 @@
+type Mutation {
+    createPickupPerson(input: createPickupPersonInput!) : createPickupPersonOutput @resolver( class: "I95Dev\\PickupPerson\\Model\\Resolver\\CreatePickupPerson") @doc(description: "create a pickup person")
+    deletePickupPerson(input: deletePickupPersonInput!) : deletePickupPersonOutput @resolver( class: "I95Dev\\PickupPerson\\Model\\Resolver\\DeletePickupPerson") @doc(description: "create a pickup person")
+    managePickupPerson(input: managePickupPersonInput!) : managePickupPersonOutput @resolver( class: "I95Dev\\PickupPerson\\Model\\Resolver\\ManagePickupPerson") @doc(description: "create a pickup person")
+    SaveOrderCustomAttrs(input: OrderAttributeInput!): Boolean @resolver(class: "I95Dev\\PickupPerson\\Model\\Resolver\\Order\\SaveAttributes")@doc(description:"Contact us form")
+}
+
+type Query {
+    getPickupperson(id: Int @doc(description: "Id")) : [ GetPickupperson ] @resolver( class: "I95Dev\\PickupPerson\\Model\\Resolver\\GetPickupperson") @doc(description: "Get Pickuperson filter by id ")
+}
+type GetPickupperson {
+    id : Int @doc(description : "id")
+    name : String @doc(description : "name")
+    customer_id : Int @doc(description : "customer_id")
+    is_default : String @doc(description : "is defualt of pickup persion")
+    mobile_number : String @odc(description : "mobile_number")
+    callingcode : Int @doc(description : "callingcode")
+}
+input createPickupPersonInput {
+    id : Int @doc(description: "id")
+    customer_id : Int  @doc(description: "pickupperson id")
+    name : String  @doc(description: "pickupperson name")
+    mobile_number : String  @doc(description: "pickupperson verfication id")
+    is_default : String  @doc(description: "is defualt of pickup persion")
+    callingcode : Int @doc(description : "callingcode")
+}
+type createPickupPersonOutput {
+    status : String  @doc(description: "status")
+    message : String  @doc(description: "message")
+}
+input deletePickupPersonInput {
+    id : Int  @doc(description: "pickupperson id")
+}
+type deletePickupPersonOutput {
+    status : String  @doc(description: "status")
+    message : String  @doc(description: "message")
+}
+input managePickupPersonInput {
+    id : Int  @doc(description: "pickupperson id")
+}
+type managePickupPersonOutput {
+    status : String  @doc(description: "status")
+    message : String  @doc(description: "message")
+}
+type Customer {
+    pickupPersons : [pickupPersonOutput] @resolver( class: "I95Dev\\PickupPerson\\Model\\Resolver\\PickupPersons") @doc(description: "get the list of pickup persons") @cache(cacheable: false)
+    
+}
+type pickupPersonOutput {
+    id : Int  @doc(description: "pickupperson id")
+    name : String  @doc(description: "pickupperson name")
+    mobile_number : String  @doc(description: "pickupperson verfication id")
+    is_default : String  @doc(description: "is defualt of pickup persion")
+    callingcode : Int @doc(description : "callingcode")
+}
+input OrderAttributeInput {
+     cart_id: String!,
+     PickupPerson: String!,
+     PickupTime: String!,
+     PickupDate: String!
+}
+
